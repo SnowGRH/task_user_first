@@ -18,6 +18,18 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
+//base routers
+Route::get('/api/tasks',[TaskController::class,'index']);
+Route::get('/api/tasks/{id}',[TaskController::class,'show']);
+Route::post('/api/tasks',[TaskController::class,'store']);
+Route::put('/api/tasks/{id}',[TaskController::class,'update']);
+Route::delete('/api/tasks/{id}',[TaskController::class,'destroy']);
+Route::get('/api/users',[TaskController::class,'index']);
 
+//view routers
+
+Route::get('/task/new',[TaskController::class,'newView']);
+Route::get('/task/list',[TaskController::class,'listView']);
+Route::get('/task/edit/{id}',[TaskController::class,'editView']);
 
 //require __DIR__ . '/auth.php';
